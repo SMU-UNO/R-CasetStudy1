@@ -66,3 +66,5 @@ statepopulations2016$State2[statepopulations2016$Location == 'Washington'] <- 'W
 statepopulations2016$State2[statepopulations2016$Location == 'West Virginia'] <- 'West Virginia'
 statepopulations2016$State2[statepopulations2016$Location == 'Wisconsin'] <- 'Wisconsin'
 statepopulations2016$State2[statepopulations2016$Location == 'Wyoming'] <- 'Wyoming'
+
+statepopulations2016 <- statepopulations2016[,5:6]

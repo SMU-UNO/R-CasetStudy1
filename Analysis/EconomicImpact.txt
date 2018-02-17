@@ -60,3 +60,5 @@ economic.impact$State2[economic.impact$State == 'Washington'] <- 'Washington'
 economic.impact$State2[economic.impact$State == 'WestVirginia'] <- 'West Virginia'
 economic.impact$State2[economic.impact$State == 'Wisconsin'] <- 'Wisconsin'
 economic.impact$State2[economic.impact$State == 'Wyoming'] <- 'Wyoming'
+
+economic.impact <- economic.impact[,-1]

@@ -1,4 +1,11 @@
 #To place all data into one dataframe
+
+source("https://raw.githubusercontent.com/SMU-UNO/R-CasetStudy1/master/Analysis/Barrels.txt")
+source("https://raw.githubusercontent.com/SMU-UNO/R-CasetStudy1/master/Analysis/EconomicImpact.txt")
+source("https://raw.githubusercontent.com/SMU-UNO/R-CasetStudy1/master/Analysis/RCodeBreweryInformation.txt")
+source("https://raw.githubusercontent.com/SMU-UNO/R-CasetStudy1/master/Analysis/StatePopulations2016.txt")
+source("https://raw.githubusercontent.com/SMU-UNO/R-CasetStudy1/master/Analysis/StatesAndRegionsGDP2016.txt")
+
 d1 <- merge(barrels, economic.impact, by="State2")
 d2 <- merge(d1, state.gdp.2016, by="State2")
 d3 <- merge(d2, statepopulations2016, by="State2")
