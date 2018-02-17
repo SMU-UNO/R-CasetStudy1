@@ -11,6 +11,7 @@ Raw Data
 (https://www.brewersassociation.org/statistics/by-state/)
 
 #EconomicImpact - The economic impact the craft beer industry has listed by state in terms of labor, sales, and designated by number of adults over 21.
+#The file had to be manipulated before importing to remove $, commas, and spaces from the values then replace spaces with commas
 (https://s3-us-west-2.amazonaws.com/brewersassoc/wp-content/uploads/2013/12/State-by-State-Breakdown-2016.pdf)
 
 #TotalPopulationsByState - A total of 2016 populations broken down by over and under 18 years of age.

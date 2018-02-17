@@ -1,0 +1,20 @@
+# This is to create a two new tables. One where it only gives 2016 GDP Per Capita by State and the other by Region.
+# to erase all the columns and rows that are unnecessary
+
+library(dplyr) #to load dplyr package
+
+stategdp.url <- "https://raw.githubusercontent.com/SMU-UNO/R-CasetStudy1/master/RawData/StatesGDPperCapita.csv" #location of the GDP data in our repository
+
+stategdp <- read.csv(stategdp.url, sep = ",",skip = 4, header=TRUE) #Loading into R
+
+#To delete last four rows as they are blank and NA and the first since its total USA
+stategdp <- stategdp[2:60,]
+
+#To remove all the excess data and keep only Columns 2 and 22
+stategdp <- subset.data.frame(stategdp, select=c(2,22))
+
+#Creating the dataframe for just the states
+state.gdp.2016 <- stategdp[2:51,]
+
+#Creating the dataframe for just the regions
+region.gdp.2016 <- stategdp[52:59,]

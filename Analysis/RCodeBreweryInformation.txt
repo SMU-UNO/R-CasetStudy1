@@ -1,0 +1,7 @@
+breweries.url <- "https://raw.githubusercontent.com/SMU-UNO/R-CasetStudy1/master/RawData/Breweries.csv" #location of the Breweries data
+
+breweries <- read.csv(breweries.url, sep = ",") #Loading into R
+
+summary(breweries)
+
+table(breweries$State) #Number of breweries by State

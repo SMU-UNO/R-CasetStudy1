@@ -1,0 +1,11 @@
+# This is to create a new table where it only gives 2016, Over 18, The Count of the Number of People and by State.
+# to subset out by each of the key four categories
+
+library(dplyr) #to load dplyr package if not already open into R
+
+statepopulation.url <- "https://raw.githubusercontent.com/SMU-UNO/R-CasetStudy1/master/RawData/TotalPopulationsByState.csv" #location of the population data
+
+statepopulations <- read.csv(statepopulation.url, sep = ",") #Loading into R
+
+statepopulations2016 <- subset(x=statepopulations, TimeFrame == 2016 & 
+Child.and.Adult.Populations == "Age 18 and over"& DataFormat=="Number" & Location != "United States") #The subset creating a new table with the data
