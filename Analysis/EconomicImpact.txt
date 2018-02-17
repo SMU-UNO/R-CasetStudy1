@@ -1,6 +1,5 @@
+#Loading Economic Impact information into R
 
+ei.url <- "https://raw.githubusercontent.com/SMU-UNO/R-CasetStudy1/master/RawData/EconomicImpact.txt" #location of the economic impact raw data
 
-
-ei.url <- "https://raw.githubusercontent.com/SMU-UNO/R-CasetStudy1/master/RawData/EconomicImpact.txt"
-
-economic.impact <- read.csv(ei.url, sep = " ", header = TRUE)
+economic.impact <- read.csv(ei.url, sep = ",", header = TRUE) #loading into R
