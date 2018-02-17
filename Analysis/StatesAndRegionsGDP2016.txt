@@ -14,7 +14,7 @@ stategdp <- stategdp[2:60,]
 stategdp <- subset.data.frame(stategdp, select=c(2,22))
 
 #Creating the dataframe for just the states
-state.gdp.2016 <- stategdp[2:51,]
+state.gdp.2016 <- stategdp[1:51,]
 
 #Creating the dataframe for just the regions
 region.gdp.2016 <- stategdp[52:59,]
