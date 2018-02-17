@@ -18,3 +18,5 @@ state.gdp.2016 <- stategdp[2:51,]
 
 #Creating the dataframe for just the regions
 region.gdp.2016 <- stategdp[52:59,]
+
+colnames(state.gdp.2016) <- c("State2", "StateGDP2016") #Renaming to what we need to merge

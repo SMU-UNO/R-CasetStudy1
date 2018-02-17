@@ -2,6 +2,64 @@ breweries.url <- "https://raw.githubusercontent.com/SMU-UNO/R-CasetStudy1/master
 
 breweries <- read.csv(breweries.url, sep = ",") #Loading into R
 
-summary(breweries)
+#Creating the State2 Field to be the Merge Value
+breweries$State2 <- NA
 
-table(breweries$State) #Number of breweries by State
+#Creating the Name Values for all the States
+breweries$State2[breweries$State == ' AL'] <- 'Alabama'
+breweries$State2[breweries$State == ' AK'] <- 'Alaska'
+breweries$State2[breweries$State == ' AZ'] <- 'Arizona'
+breweries$State2[breweries$State == ' AR'] <- 'Arkansas'
+breweries$State2[breweries$State == ' CA'] <- 'California'
+breweries$State2[breweries$State == ' CO'] <- 'Colorado'
+breweries$State2[breweries$State == ' CT'] <- 'Connecticut'
+breweries$State2[breweries$State == ' DE'] <- 'Delaware'
+breweries$State2[breweries$State == ' DC '] <- 'District of Columbia'
+breweries$State2[breweries$State == ' FL'] <- 'Florida'
+breweries$State2[breweries$State == ' GA'] <- 'Georgia'
+breweries$State2[breweries$State == ' HI'] <- 'Hawaii'
+breweries$State2[breweries$State == ' ID'] <- 'Idaho'
+breweries$State2[breweries$State == ' IL'] <- 'Illinois'
+breweries$State2[breweries$State == ' IN'] <- 'Indiana'
+breweries$State2[breweries$State == ' IA'] <- 'Iowa'
+breweries$State2[breweries$State == ' KS'] <- 'Kansas'
+breweries$State2[breweries$State == ' KY'] <- 'Kentucky'
+breweries$State2[breweries$State == ' LA'] <- 'Louisiana'
+breweries$State2[breweries$State == ' ME'] <- 'Maine'
+breweries$State2[breweries$State == ' MD'] <- 'Maryland'
+breweries$State2[breweries$State == ' MA'] <- 'Massachusetts'
+breweries$State2[breweries$State == ' MI'] <- 'Michigan'
+breweries$State2[breweries$State == ' MN'] <- 'Minnesota'
+breweries$State2[breweries$State == ' MS'] <- 'Mississippi'
+breweries$State2[breweries$State == ' MO'] <- 'Missouri'
+breweries$State2[breweries$State == ' MT'] <- 'Montana'
+breweries$State2[breweries$State == ' NE'] <- 'Nebraska'
+breweries$State2[breweries$State == ' NV'] <- 'Nevada'
+breweries$State2[breweries$State == ' NH'] <- 'New Hampshire'
+breweries$State2[breweries$State == ' NJ'] <- 'New Jersey'
+breweries$State2[breweries$State == ' NM'] <- 'New Mexico'
+breweries$State2[breweries$State == ' NY'] <- 'New York'
+breweries$State2[breweries$State == ' NC'] <- 'North Carolina'
+breweries$State2[breweries$State == ' ND'] <- 'North Dakota'
+breweries$State2[breweries$State == ' OH'] <- 'Ohio'
+breweries$State2[breweries$State == ' OK'] <- 'Oklahoma'
+breweries$State2[breweries$State == ' OR'] <- 'Oregon'
+breweries$State2[breweries$State == ' PA'] <- 'Pennsylvania'
+breweries$State2[breweries$State == ' RI'] <- 'Rhode Island'
+breweries$State2[breweries$State == ' SC'] <- 'South Carolina'
+breweries$State2[breweries$State == ' SD'] <- 'South Dakota'
+breweries$State2[breweries$State == ' TN'] <- 'Tennessee'
+breweries$State2[breweries$State == ' TX'] <- 'Texas'
+breweries$State2[breweries$State == ' UT'] <- 'Utah'
+breweries$State2[breweries$State == ' VT'] <- 'Vermont'
+breweries$State2[breweries$State == ' VA'] <- 'Virginia'
+breweries$State2[breweries$State == ' WA'] <- 'Washington'
+breweries$State2[breweries$State == ' WV'] <- 'West Virginia'
+breweries$State2[breweries$State == ' WI'] <- 'Wisconsin'
+breweries$State2[breweries$State == ' WY'] <- 'Wyoming'
+
+numberbreweries <- aggregate(x = breweries, by = list(unique.values = breweries$State2), FUN = length)
+numberbreweries <- numberbreweries[,1:2]
+colnames(numberbreweries) <- c("State2", "Number.of.Breweries.from.Data")
+
+numberbreweries

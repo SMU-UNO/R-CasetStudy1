@@ -1,0 +1,5 @@
+#To place all data into one dataframe
+d1 <- merge(barrels, economic.impact, by="State2")
+d2 <- merge(d1, state.gdp.2016, by="State2")
+d3 <- merge(d2, statepopulations2016, by="State2")
+alldata <- merge(d3, numberbreweries, by="State2")
