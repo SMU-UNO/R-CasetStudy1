@@ -1,0 +1,5 @@
+Here you will find the analysis and R Code used to prepare the presentation.
+
+The data files have been designed to be modular. Each data file has its own analysis file that matches.
+
+The MergeDataAndAnalysis file sources these other files and then prepares the final full datasheet.
