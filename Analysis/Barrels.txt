@@ -57,4 +57,4 @@ barrels$State2[barrels$State == 'Wyoming'] <- 'Wyoming'
 barrels <- barrels[,-1]
 
 #Creating a new percentage field for percentage output of Barrels Per Year
-barrels$Barrles.State.Percentage <- barrels$Barrels.of.Craft.Beer.Produced.Per.Year/sum(barrels$Barrels.of.Craft.Beer.Produced.Per.Year)*100
+barrels$Barrels.State.Percentage <- barrels$Barrels.of.Craft.Beer.Produced.Per.Year/sum(barrels$Barrels.of.Craft.Beer.Produced.Per.Year)*100
