@@ -1,3 +1,4 @@
+
 This repository is for beers and brewries case study and analysis.
 
 breweries contains all Breweries data
@@ -14,3 +15,4 @@ c. median alcohol content and international bitterness unit for each state.
 d. maximum alcoholic (ABV) beer and most bitter beer
 e. statistics for the ABV varia
 f.apparent relationship between the bitterness of the beer and its alcoholic content using ggplot.
+\

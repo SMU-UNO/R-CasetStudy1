@@ -1,0 +1,72 @@
+# This is to create a new table where it only gives 2016, Over 18, The Count of the Number of People and by State.
+# to subset out by each of the key four categories
+
+library(dplyr) #to load dplyr package if not already open into R
+
+statepopulation.url <- "https://raw.githubusercontent.com/SMU-UNO/R-CasetStudy1/master/RawData/TotalPopulationsByState.csv" #location of the population data
+
+statepopulations <- read.csv(statepopulation.url, sep = ",") #Loading into R
+
+statepopulations2016 <- subset(x=statepopulations, TimeFrame == 2016 & 
+Child.and.Adult.Populations == "Age 18 and over"& DataFormat=="Number" & Location != "United States" & Location != "Puerto Rico") #The subset creating a new table with the data
+
+#Creating the State2 Field to be the Merge Value
+statepopulations2016$State2 <- NA
+
+#Creating the Name Values for all the States
+
+statepopulations2016$State2[statepopulations2016$Location == 'Alabama'] <- 'Alabama'
+statepopulations2016$State2[statepopulations2016$Location == 'Alaska'] <- 'Alaska'
+statepopulations2016$State2[statepopulations2016$Location == 'Arizona'] <- 'Arizona'
+statepopulations2016$State2[statepopulations2016$Location == 'Arkansas'] <- 'Arkansas'
+statepopulations2016$State2[statepopulations2016$Location == 'California'] <- 'California'
+statepopulations2016$State2[statepopulations2016$Location == 'Colorado'] <- 'Colorado'
+statepopulations2016$State2[statepopulations2016$Location == 'Connecticut'] <- 'Connecticut'
+statepopulations2016$State2[statepopulations2016$Location == 'Delaware'] <- 'Delaware'
+statepopulations2016$State2[statepopulations2016$Location == 'District of Columbia'] <- 'District of Columbia'
+statepopulations2016$State2[statepopulations2016$Location == 'Florida'] <- 'Florida'
+statepopulations2016$State2[statepopulations2016$Location == 'Georgia'] <- 'Georgia'
+statepopulations2016$State2[statepopulations2016$Location == 'Hawaii'] <- 'Hawaii'
+statepopulations2016$State2[statepopulations2016$Location == 'Idaho'] <- 'Idaho'
+statepopulations2016$State2[statepopulations2016$Location == 'Illinois'] <- 'Illinois'
+statepopulations2016$State2[statepopulations2016$Location == 'Indiana'] <- 'Indiana'
+statepopulations2016$State2[statepopulations2016$Location == 'Iowa'] <- 'Iowa'
+statepopulations2016$State2[statepopulations2016$Location == 'Kansas'] <- 'Kansas'
+statepopulations2016$State2[statepopulations2016$Location == 'Kentucky'] <- 'Kentucky'
+statepopulations2016$State2[statepopulations2016$Location == 'Louisiana'] <- 'Louisiana'
+statepopulations2016$State2[statepopulations2016$Location == 'Maine'] <- 'Maine'
+statepopulations2016$State2[statepopulations2016$Location == 'Maryland'] <- 'Maryland'
+statepopulations2016$State2[statepopulations2016$Location == 'Massachusetts'] <- 'Massachusetts'
+statepopulations2016$State2[statepopulations2016$Location == 'Michigan'] <- 'Michigan'
+statepopulations2016$State2[statepopulations2016$Location == 'Minnesota'] <- 'Minnesota'
+statepopulations2016$State2[statepopulations2016$Location == 'Mississippi'] <- 'Mississippi'
+statepopulations2016$State2[statepopulations2016$Location == 'Missouri'] <- 'Missouri'
+statepopulations2016$State2[statepopulations2016$Location == 'Montana'] <- 'Montana'
+statepopulations2016$State2[statepopulations2016$Location == 'Nebraska'] <- 'Nebraska'
+statepopulations2016$State2[statepopulations2016$Location == 'Nevada'] <- 'Nevada'
+statepopulations2016$State2[statepopulations2016$Location == 'New Hampshire'] <- 'New Hampshire'
+statepopulations2016$State2[statepopulations2016$Location == 'New Jersey'] <- 'New Jersey'
+statepopulations2016$State2[statepopulations2016$Location == 'New Mexico'] <- 'New Mexico'
+statepopulations2016$State2[statepopulations2016$Location == 'New York'] <- 'New York'
+statepopulations2016$State2[statepopulations2016$Location == 'North Carolina'] <- 'North Carolina'
+statepopulations2016$State2[statepopulations2016$Location == 'North Dakota'] <- 'North Dakota'
+statepopulations2016$State2[statepopulations2016$Location == 'Ohio'] <- 'Ohio'
+statepopulations2016$State2[statepopulations2016$Location == 'Oklahoma'] <- 'Oklahoma'
+statepopulations2016$State2[statepopulations2016$Location == 'Oregon'] <- 'Oregon'
+statepopulations2016$State2[statepopulations2016$Location == 'Pennsylvania'] <- 'Pennsylvania'
+statepopulations2016$State2[statepopulations2016$Location == 'Rhode Island'] <- 'Rhode Island'
+statepopulations2016$State2[statepopulations2016$Location == 'South Carolina'] <- 'South Carolina'
+statepopulations2016$State2[statepopulations2016$Location == 'South Dakota'] <- 'South Dakota'
+statepopulations2016$State2[statepopulations2016$Location == 'Tennessee'] <- 'Tennessee'
+statepopulations2016$State2[statepopulations2016$Location == 'Texas'] <- 'Texas'
+statepopulations2016$State2[statepopulations2016$Location == 'Utah'] <- 'Utah'
+statepopulations2016$State2[statepopulations2016$Location == 'Vermont'] <- 'Vermont'
+statepopulations2016$State2[statepopulations2016$Location == 'Virginia'] <- 'Virginia'
+statepopulations2016$State2[statepopulations2016$Location == 'Washington'] <- 'Washington'
+statepopulations2016$State2[statepopulations2016$Location == 'West Virginia'] <- 'West Virginia'
+statepopulations2016$State2[statepopulations2016$Location == 'Wisconsin'] <- 'Wisconsin'
+statepopulations2016$State2[statepopulations2016$Location == 'Wyoming'] <- 'Wyoming'
+
+statepopulations2016 <- statepopulations2016[,5:6]
+
+statepopulations2016$Adult.Population.State.Percentage <- statepopulations2016$Data/sum(statepopulations2016$Data)*100
