@@ -1,4 +1,4 @@
 # MSDSRrepo
-This git repository contains R assignments -- selection of the data,
-the data-processing scripts and graphics in R.
-TEST
+This Repository is for the Team Uno Solutions, LLC Case Study 1 presentation.
+
+Here you will find our raw data, our anaylsis, and presentation.
