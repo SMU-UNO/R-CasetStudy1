@@ -20,3 +20,5 @@ state.gdp.2016 <- stategdp[1:51,]
 region.gdp.2016 <- stategdp[52:59,]
 
 colnames(state.gdp.2016) <- c("State2", "StateGDP2016") #Renaming to what we need to merge
+
+state.gdp.2016$GDP.State.Percentage <- state.gdp.2016$StateGDP2016/sum(state.gdp.2016$StateGDP2016)*100
