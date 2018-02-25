@@ -68,3 +68,5 @@ statepopulations2016$State2[statepopulations2016$Location == 'Wisconsin'] <- 'Wi
 statepopulations2016$State2[statepopulations2016$Location == 'Wyoming'] <- 'Wyoming'
 
 statepopulations2016 <- statepopulations2016[,5:6]
+
+statepopulations2016$Adult.Population.State.Percentage <- statepopulations2016$Data/sum(statepopulations2016$Data)*100

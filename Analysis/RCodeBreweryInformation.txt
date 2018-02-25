@@ -62,4 +62,4 @@ numberbreweries <- aggregate(x = breweries, by = list(unique.values = breweries$
 numberbreweries <- numberbreweries[,1:2]
 colnames(numberbreweries) <- c("State2", "Number.of.Breweries.from.Data")
 
-numberbreweries
+numberbreweries$Number.Breweries.State.Percentage <- numberbreweries$Number.of.Breweries.from.Data/sum(numberbreweries$Number.of.Breweries.from.Data)*100

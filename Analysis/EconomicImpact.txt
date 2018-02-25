@@ -62,3 +62,6 @@ economic.impact$State2[economic.impact$State == 'Wisconsin'] <- 'Wisconsin'
 economic.impact$State2[economic.impact$State == 'Wyoming'] <- 'Wyoming'
 
 economic.impact <- economic.impact[,-1]
+
+#Creating a new percentage field for percentage output of Economic Impact per Year
+economic.impact$Economic.Impact.State.Percentage <- economic.impact$Economic.Impact/sum(economic.impact$Economic.Impact)*100
