@@ -4,8 +4,9 @@ output:
  
   html_document: default
 ---
+##This can be found on GitHub at https://github.com/SMU-UNO/R-CasetStudy1
 
-#Loading the necessary files into R.
+##Loading the necessary files into R.
 ```{r}
 breweries.url <- "https://raw.githubusercontent.com/SMU-UNO/R-CasetStudy1/master/RawData/Breweries.csv" #location of the Breweries data
 breweries <- read.csv(breweries.url, header=TRUE, sep = ",") #Loading into R
@@ -14,12 +15,12 @@ beers <- read.csv(beers.url, header=TRUE, sep = ",") #Loading into R
 ```
 
 
-#1. How many breweries are present in each state?
+##1. How many breweries are present in each state?
 ```{r}
 table(breweries$State)
 ```
 
-#2. Merge beer data with the breweries data. Print the first 6 observations and the last six observations to check the merged file.
+##2. Merge beer data with the breweries data. Print the first 6 observations and the last six observations to check the merged file.
 ```{r}
 beersnbrew <- merge(beers, breweries, by.x=c("Brewery_id"), by.y = c("Brew_ID"), all=FALSE)
 head(beersnbrew)
@@ -27,12 +28,12 @@ tail(beersnbrew)
 
 ```
 
-#3. Report the number of NA's in each column
+##3. Report the number of NA's in each column
 ```{r}
 colSums(is.na(beersnbrew))
 ```
 
-#4.Compute the median alcohol content and international bitterness unit for each state. Plot a bar chart to compare.
+##4.Compute the median alcohol content and international bitterness unit for each state. Plot a bar chart to compare.
 ```{r}
 med.ABV<-tapply(beersnbrew$ABV, beersnbrew$State, median)
 med.IBU<-tapply(beersnbrew$IBU, beersnbrew$State, median)
@@ -40,7 +41,7 @@ barplot(med.ABV, xlab="State", ylab="Median Alcoholic content", main ="Statewise
 barplot(med.IBU, xlab="State", ylab="Median Alcohol Bitterness", main ="Statewise Alcohol Bitterness")
 ```
 
-#5. Which state has the maximum alcoholic (ABV) beer? Which state has the most bitter (IBU) beer?
+##5. Which state has the maximum alcoholic (ABV) beer? Which state has the most bitter (IBU) beer?
 ```{r}
 maxABV <- beersnbrew[which.max(beersnbrew$ABV), ]
 maxABVState<-levels(droplevels(maxABV$State))
@@ -54,12 +55,12 @@ maxIBUState
 
 ```
 
-#6.Summary statistics for the ABV varia
+##6.Summary statistics for the ABV varia
 ```{r}
 summary(beersnbrew$ABV)
 ```
 
-#7.Is there an apparent relationship between the bitterness of the beer and its alcoholic content? Draw a scatter plot.
+##7.Is there an apparent relationship between the bitterness of the beer and its alcoholic content? Draw a scatter plot.
 ```{r}
 beersnbrew[is.na(beersnbrew)] <- 0
 
@@ -72,15 +73,14 @@ color="darkred")
 
 ##If the data points make a straight line going from the origin out to high x- and y-values, then the variables are said to have a positive correlation .
 #If the line goes from a high-value on the y-axis down to a high-value on the x-axis, the variables have a negative correlation .
-# The figure, seems to be a fuzzy linear correlation so we will use Correlation Coefficient in order to measure of the linear dependence between IBU and ABV.
-#The result will be a value between +1 and −1 inclusive, where 1 is total positive linear correlation, 0 is no linear correlation, and −1 is total negative linear correlation.
+## The figure, seems to be a fuzzy linear correlation so we will use Correlation Coefficient in order to measure of the linear dependence between IBU and ABV.
+##The result will be a value between +1 and −1 inclusive, where 1 is total positive linear correlation, 0 is no linear correlation, and −1 is total negative linear correlation.
 ```{r}
 cc <- cor(beersnbrew$ABV, beersnbrew$IBU)
 cc
 ```
 
-# the r value we got is 0.4 showing the slight positive corealtion between the IBU ans ABV that the alcoholic content may effect to the flavour
-#or bitterness of alcohol.
+## the r value we got is 0.4 showing the slight positive corealtion between the IBU ans ABV that the alcoholic content may effect to the flavour or bitterness of alcohol.
 
 
 
